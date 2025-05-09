@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Mail\Booking;
-use App\Mail\BookingConfirmation;
 use Illuminate\Http\Request;
+use App\Mail\BookingConfirmation;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Mail;
+use App\Models\Booking as BookingModel;
 
 class BookingController extends Controller
 {
@@ -24,15 +25,11 @@ class BookingController extends Controller
             'first_name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
             'email' => 'required|email|max:255',
-            'home_phone' => 'nullable|string|max:30',
             'mobile_phone' => 'required|string|max:30',
+            'home_phone' => 'nullable|string|max:30',
             'emergency_contact' => 'required|string|max:100',
             'emergency_phone_number' => 'required|string|max:30',
             'address' => 'required|string|max:255',
-
-            // Vet Details
-            'vet_name' => 'required|string|max:100',
-            'vet_contact' => 'required|string|max:30',
 
             // Reservation Details
             'check_in_date' => 'required|date',
@@ -41,7 +38,11 @@ class BookingController extends Controller
             'check_out_date' => 'required|date|after:check_in_date',
             'check_out_time' => 'required',
             'check_out_taxi' => 'required|string|in:Yes,No',
-
+            
+            // Vet Details
+            'vet_name' => 'required|string|max:100',
+            'vet_contact' => 'required|string|max:30',
+            
             // Acknowledgement
             'terms_accepted' => 'accepted',
 
@@ -71,6 +72,10 @@ class BookingController extends Controller
         ]);
 
         $booking = $validated;
+        $booking['dogs'] = json_encode($validated['dogs']);
+        $booking['booking_data'] = json_encode($validated);
+        
+        $newBooking = BookingModel::create($booking);
 
         // Send confirmation email to user
         Mail::to($booking['email'])->send(new BookingConfirmation($booking));
