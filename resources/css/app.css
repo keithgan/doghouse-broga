@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Your custom styles below */
+
+body {
+    font-family: 'Poppins', sans-serif;
+}
+
+.small-text{
+    font-size: 14px; /* 0.875rem (14px) */ 
+    line-height: var(--text-sm--line-height); /* calc(1.25 / 0.875) */
+}
+
+.tnc-here{
+    color: #16b99a;
+    font-weight: 600;
+}
+
+.bg-light-green{
+    background-color: #819d7c;
+}
+
+.green-text{
+    color: #16b99a;
+}
+
+.light-green-text{
+    color: #1ee4be;
+}
+
+.green-button{
+    background-color: #16b99a;
+}
+
+.light-green-button{
+    background-color: #35e7c5;
+}
+
+.green-button:hover{
+    background-color: #0f816c;
+}
+
+.green-nav-bar-button:hover{
+    color: #16b99a;
+}
