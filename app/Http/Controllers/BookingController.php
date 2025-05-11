@@ -72,17 +72,17 @@ class BookingController extends Controller
         ]);
 
         $booking = $validated;
-        $booking['dogs'] = json_encode($validated['dogs']);
-        $booking['booking_data'] = json_encode($validated);
+        $bookingModel = $validated;
+        $bookingModel['dogs'] = json_encode($validated['dogs']);
+        $bookingModel['booking_data'] = json_encode($validated);
         
-        $newBooking = BookingModel::create($booking);
+        $newBooking = BookingModel::create($bookingModel);
 
         // Send confirmation email to user
-        Mail::to($booking['email'])->send(new BookingConfirmation($booking));
+        Mail::to($booking['email'])->send((new BookingConfirmation($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
         
         // Send confirmation email to admin
-        Mail::to(['keithgan96@gmail.com'])->send(new Booking($booking));
-        // Mail::to(['enquiries@doghousebroga.com', 'doghousebroga@yahoo.com'])->send(new BookingConfirmation($booking));
+        Mail::to(['enquiries@doghousebroga.com', 'doghousebroga@yahoo.com'])->send((new Booking($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
     
         return redirect()->route('thank-you')->with('success', 'Booking submitted successfully!');
     }
