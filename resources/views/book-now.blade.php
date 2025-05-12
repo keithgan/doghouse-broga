@@ -426,8 +426,8 @@
     document.addEventListener('DOMContentLoaded', function () {
         const checkInInput = document.getElementById('check_in_date');
         const checkOutInput = document.getElementById('check_out_date');
-        const checkInErrorMsg = document.getElementById('check-in-date-error');
-        const checkOutErrorMsg = document.getElementById('check-out-date-error');
+        const checkInErrorMsg = document.getElementById('checkin-date-error');
+        const checkOutErrorMsg = document.getElementById('checkout-date-error');
     
         const today = new Date();
         const yyyy = today.getFullYear();
