@@ -430,23 +430,22 @@
     
         checkInInput.min = formattedToday;
     
-        function validateDates() {
-            const checkInDate = checkInInput.value;
-            const checkOutDate = checkOutInput.value;
-    
-            if (checkInDate < formattedToday) {
-
-                alert("Check-in date cannot be in the past.");
-            } else if (checkOutDate && checkOutDate < checkInDate) {
-                alert("Check-out date cannot be earlier than check-in date.");
-            }
-        }
-    
         checkInInput.addEventListener('input', function () {
-            checkOutInput.min = checkInInput.value;
-            validateDates();
+            const dateInput = document.querySelector('input[name="check_in_date"]');
+
+            if (dateInput.value < formattedToday) {
+                alert("Please select a valid date (today or later).");
+                dateInput.value = formattedToday;
+            }
         });
     
-        checkOutInput.addEventListener('input', validateDates);
+        checkOutInput.addEventListener('input', function () {
+            const dateInput = document.querySelector('input[name="check_out_date"]');
+
+            if (checkOutDate && checkOutDate < checkInDate) {
+                alert("Check-out date cannot be earlier than check-in date.");
+                dateInput.value = formattedToday;
+            }
+        });
     });
 </script>
