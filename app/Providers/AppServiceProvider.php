@@ -20,6 +20,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        app(Vite::class)->useBuildDirectory('build');
+        \URL::forceRootUrl(config('app.url'));
     }
 }
