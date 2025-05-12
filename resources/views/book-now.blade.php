@@ -205,9 +205,6 @@
                             <input type="date" id="check_in_date" name="check_in_date" required class="w-full border border-gray-300 rounded-lg p-3" min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}" value="{{ old('check_in_date') }}">
                             @error('check_in_date')<p class="text-red-600 text-sm mt-2">Please select a check-in date.</p>@enderror
                         </div>
-                        <div class="md:col-span-2">
-                            <p id="checkout-date-error" class="text-red-600 text-sm mt-1"></p>
-                        </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Time <span class="text-red-600">*</span></label>
                             <select name="check_in_time" required class="w-full border border-gray-300 rounded-lg p-3 text-sm sm:text-base">
@@ -245,10 +242,6 @@
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Date <span class="text-red-600">*</span></label>
                             <input type="date" name="check_out_date" required class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('check_out_date') }}">
                             @error('check_out_date')<p class="text-red-600 text-sm mt-2">Please select a check-out date.</p>@enderror
-                        </div>
-                        <!-- Date Error Message -->
-                        <div class="md:col-span-2">
-                            <p id="checkout-date-error" class="text-red-600 text-sm mt-1"></p>
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Time <span class="text-red-600">*</span></label>
@@ -427,7 +420,7 @@
         const checkInInput = document.getElementById('check_in_date');
         const checkOutInput = document.getElementById('check_out_date');
         const checkInErrorMsg = document.getElementById('checkin-date-error');
-        const checkOutErrorMsg = document.getElementById('checkout-date-error');
+        const checkOutErrorMsg = document.getElementById('check-out-date-error');
     
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -442,16 +435,10 @@
             const checkOutDate = checkOutInput.value;
     
             if (checkInDate < formattedToday) {
-                checkInErrorMsg.textContent = 'Check-in date cannot be in the past.';
-                checkInInput.classList.add('border-red-500');
+
+                alert("Check-in date cannot be in the past.");
             } else if (checkOutDate && checkOutDate < checkInDate) {
-                checkOutErrorMsg.textContent = 'Check-out date cannot be earlier than check-in date.';
-                checkOutInput.classList.add('border-red-500');
-            } else {
-                checkInErrorMsg.textContent = '';
-                checkOutErrorMsg.textContent = '';
-                checkInInput.classList.remove('border-red-500');
-                checkOutInput.classList.remove('border-red-500');
+                alert("Check-out date cannot be earlier than check-in date.");
             }
         }
     
