@@ -6,7 +6,7 @@
 {{-- Hero Banner --}}
 <div class="relative h-[300px] md:h-[400px] lg:h-[500px] w-full">
     {{-- Background Image --}}
-    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('{{ asset('images/book-now-banner.jpg') }}');"></div>
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('images/book-now-banner.jpg');"></div>
 
     {{-- Overlay --}}
     <div class="absolute inset-0 bg-black bg-opacity-50"></div>

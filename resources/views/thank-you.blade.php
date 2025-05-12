@@ -4,7 +4,7 @@
 
 @section('content')
 
-<div class="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 text-center bg-cover bg-center bg-no-repeat" style="background-image: url('{{ asset('images/thank-you-page-background.png') }}');">
+<div class="relative flex flex-col items-center justify-center min-h-screen py-20 px-4 text-center bg-cover bg-center bg-no-repeat" style="background-image: url('images/thank-you-page-background.png');">
 
   <div class="absolute inset-0 bg-black bg-opacity-60 z-0"></div>
 
