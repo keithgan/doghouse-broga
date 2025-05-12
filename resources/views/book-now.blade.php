@@ -434,7 +434,7 @@
             const dateInput = document.querySelector('input[name="check_in_date"]');
 
             if (dateInput.value < formattedToday) {
-                alert("Please select a valid date (today or later).");
+                alert("Check-in date cannot be in the past.");
                 dateInput.value = formattedToday;
             }
         });
