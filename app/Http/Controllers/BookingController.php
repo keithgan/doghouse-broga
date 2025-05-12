@@ -32,7 +32,7 @@ class BookingController extends Controller
             'address' => 'required|string|max:255',
 
             // Reservation Details
-            'check_in_date' => 'required|date',
+            'check_in_date' => 'required|date|after_or_equal:today',
             'check_in_time' => 'required',
             'check_in_taxi' => 'required|string|in:Yes,No',
             'check_out_date' => 'required|date|after:check_in_date',

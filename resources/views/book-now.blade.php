@@ -202,7 +202,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Date <span class="text-red-600">*</span></label>
-                            <input type="date" name="check_in_date" required class="w-full border border-gray-300 rounded-lg p-3" min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}" value="{{ old('check_in_date') }}">
+                            <input type="date" id="check_in_date" name="check_in_date" required class="w-full border border-gray-300 rounded-lg p-3" min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}" value="{{ old('check_in_date') }}">
                             @error('check_in_date')<p class="text-red-600 text-sm mt-2">Please select a check-in date.</p>@enderror
                         </div>
                         <div>
@@ -413,6 +413,26 @@
             if (checkInDate.value) {
                 checkOutDate.min = checkInDate.value;
             }
+        }
+    });
+
+    document.addEventListener('DOMContentLoaded', function () {
+        const dateInput = document.querySelector('input[name="check_in_date"]');
+        if (dateInput) {
+            const today = new Date();
+            const yyyy = today.getFullYear();
+            const mm = String(today.getMonth() + 1).padStart(2, '0');
+            const dd = String(today.getDate()).padStart(2, '0');
+            const formattedToday = `${yyyy}-${mm}-${dd}`;
+            
+            dateInput.min = formattedToday;
+
+            dateInput.addEventListener('input', function () {
+                if (dateInput.value < formattedToday) {
+                    alert("Please select a valid date (today or later).");
+                    dateInput.value = formattedToday;
+                }
+            });
         }
     });
 </script>
