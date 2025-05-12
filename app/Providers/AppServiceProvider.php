@@ -21,9 +21,5 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         app(Vite::class)->useBuildDirectory('build');
-        app(Vite::class)->useHotFile(public_path('../build/hot'));
-
-        // Optional: force asset URLs to start from /
-        Vite::macroCall('useScriptTagAttributes', [fn () => ['type' => 'module']]);
     }
 }
