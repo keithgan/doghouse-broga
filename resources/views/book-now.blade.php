@@ -240,7 +240,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Date <span class="text-red-600">*</span></label>
-                            <input type="date" name="check_out_date" required class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('check_out_date') }}">
+                            <input type="date" id="check_out_date" name="check_out_date" required class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('check_out_date') }}">
                             @error('check_out_date')<p class="text-red-600 text-sm mt-2">Please select a check-out date.</p>@enderror
                         </div>
                         <div>
@@ -435,6 +435,9 @@
             if (checkInDateInput.value < formattedToday) {
                 alert("Check-in date cannot be in the past.");
                 checkInDateInput.value = formattedToday;
+            } else if (checkInDateInput.value && checkOutDateInput.value && checkInDateInput.value > checkOutDateInput.value) {
+                alert("Check-in date cannot be later than check-out date.");
+                checkInDateInput.value = "";
             }
         });
     
