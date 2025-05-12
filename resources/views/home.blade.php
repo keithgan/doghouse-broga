@@ -55,7 +55,7 @@
             x-transition:leave-start="opacity-100"
             x-transition:leave-end="opacity-0"
             class="absolute inset-0 bg-cover bg-center"
-            :style="`background-image: url('{{ asset("images/${slide}") }}')`">
+            :style="`background-image: url('{{ asset('images/${slide}') }}`">
         </div>
     </template>
 
