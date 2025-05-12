@@ -439,7 +439,7 @@
         });
     
         checkOutInput.addEventListener('input', function () {
-            if (checkOutDate.value && checkOutDateInput.value < checkInDateOmput.value) {
+            if (checkOutDateInput.value && checkOutDateInput.value < checkInDateInput.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutDateInput.value = "";
             }
