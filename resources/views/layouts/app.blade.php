@@ -11,8 +11,8 @@
     {{-- Google Fonts: Poppins --}}
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-    {{-- Custom Styles --}}
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Directly linked compiled CSS --}}
+    <link rel="stylesheet" href="{{ asset('build/assets/app-DZ4hKiyi.css') }}">
 
     {{-- Alpine.js for Interactivity --}}
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -39,5 +39,8 @@
     @include('partials.footer')
 
     @stack('scripts') {{-- For page-specific scripts if needed --}}
+
+    {{-- Directly linked compiled JS --}}
+    <script type="module" src="{{ asset('build/assets/app-DMSGCFVA.js') }}"></script>
 </body>
 </html>
