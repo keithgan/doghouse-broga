@@ -419,8 +419,6 @@
     document.addEventListener('DOMContentLoaded', function () {
         const checkInInput = document.getElementById('check_in_date');
         const checkOutInput = document.getElementById('check_out_date');
-        const checkInErrorMsg = document.getElementById('checkin-date-error');
-        const checkOutErrorMsg = document.getElementById('check-out-date-error');
     
         const today = new Date();
         const yyyy = today.getFullYear();
@@ -430,21 +428,20 @@
     
         checkInInput.min = formattedToday;
     
-        checkInInput.addEventListener('input', function () {
-            const dateInput = document.querySelector('input[name="check_in_date"]');
+        const checkInDateInput = document.querySelector('input[name="check_in_date"]');
+        const checkOutDateInput = document.querySelector('input[name="check_out_date"]');
 
-            if (dateInput.value < formattedToday) {
+        checkInInput.addEventListener('input', function () {
+            if (checkInDateInput.value < formattedToday) {
                 alert("Check-in date cannot be in the past.");
-                dateInput.value = formattedToday;
+                checkInDateInput.value = formattedToday;
             }
         });
     
         checkOutInput.addEventListener('input', function () {
-            const dateInput = document.querySelector('input[name="check_out_date"]');
-
-            if (checkOutDate && checkOutDate < checkInDate) {
+            if (checkOutDate.value && checkOutDateInput.value < checkInDateOmput.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
-                dateInput.value = formattedToday;
+                checkOutDateInput.value = "";
             }
         });
     });
