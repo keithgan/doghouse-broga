@@ -401,50 +401,37 @@
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const checkInDate = document.querySelector('input[name="check_in_date"]');
-        const checkOutDate = document.querySelector('input[name="check_out_date"]');
-
-        if (checkInDate && checkOutDate) {
-            checkInDate.addEventListener('change', function () {
-                checkOutDate.min = checkInDate.value;
-            });
-
-            // Set initial min if check-in already selected
-            if (checkInDate.value) {
-                checkOutDate.min = checkInDate.value;
-            }
-        }
-    });
-
-    document.addEventListener('DOMContentLoaded', function () {
         const checkInInput = document.getElementById('check_in_date');
         const checkOutInput = document.getElementById('check_out_date');
     
-        const today = new Date();
-        const yyyy = today.getFullYear();
-        const mm = String(today.getMonth() + 1).padStart(2, '0');
-        const dd = String(today.getDate()).padStart(2, '0');
-        const formattedToday = `${yyyy}-${mm}-${dd}`;
+        // 1) compute "today" in yyyy-mm-dd
+        const today = new Date().toISOString().split('T')[0];
     
-        checkInInput.min = formattedToday;
+        checkInInput.min = today;
+        checkOutInput.min = today;
     
-        const checkInDateInput = document.querySelector('input[name="check_in_date"]');
-        const checkOutDateInput = document.querySelector('input[name="check_out_date"]');
+        // const checkInDateInput = document.querySelector('input[name="check_in_date"]');
+        // const checkOutDateInput = document.querySelector('input[name="check_out_date"]');
 
         checkInInput.addEventListener('change', function () {
-            if (checkInDateInput.value < formattedToday) {
+            if (checkInInput.value < today) {
                 alert("Check-in date cannot be in the past.");
-                checkInDateInput.value = formattedToday;
-            } else if (checkInDateInput.value && checkOutDateInput.value && checkInDateInput.value > checkOutDateInput.value) {
+                return void (checkIn.value = today);
+            } else if (checkInInput.value && checkOutInput.value && checkInInput.value > checkOutInput.value) {
                 alert("Check-in date cannot be later than check-out date.");
-                checkInDateInput.value = "";
+                checkInInput.value = "";
             }
+
+            // ★ bump the checkout min ★
+            checkOutInput.min = checkInInput.value;
+            console.log("Check-in date changed to: " + checkInInput.value);
+            console.log("Check-out date changed set to: " + checkOutInput.value);
         });
     
         checkOutInput.addEventListener('change', function () {
-            if (checkOutDateInput.value && checkOutDateInput.value < checkInDateInput.value) {
+            if (checkOutInput.value && checkOutInput.value < checkInDateInput.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
-                checkOutDateInput.value = "";
+                checkOutInput.value = "";
             }
         });
     });
