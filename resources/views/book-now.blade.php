@@ -413,24 +413,28 @@
         checkInInput.addEventListener('change', function () {
             if (checkInInput.value < today) {
                 alert("Check-in date cannot be in the past.");
-                return void (checkInInput.value = today);
-            } else if (checkInInput.value && checkOutInput.value && checkInInput.value > checkOutInput.value) {
+                checkIn.value = today;
+                return;
+            }
+            
+            if (checkOutInput.value && checkInInput.value > checkOutInput.value) {
                 alert("Check-in date cannot be later than check-out date.");
                 checkInInput.value = "";
                 return;
             }
 
-            // ✅ Delay min update slightly (helps on iOS Safari sometimes)
-            setTimeout(() => {
-                checkOutInput.min = checkInInput.value;
-                console.log("Checkout min updated to: ", checkOutInput.min);
-            }, 10);
+        });
+
+        // right before the user picks a checkout date on mobile…
+        checkOut.addEventListener('focus', () => {
+            // if they haven’t picked a check-in yet, default to today
+            checkOut.min = checkIn.value || today;
         });
     
         checkOutInput.addEventListener('change', function () {
             if (!checkOutInput.value) return;
 
-            if (checkOutInput.value && checkOutInput.value < checkInInput.value) {
+            if (checkOutInput.value && checkOutInput.value < (checkInInput.value || today)) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutInput.value = "";
             }
