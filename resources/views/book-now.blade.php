@@ -407,13 +407,13 @@
         // 1) compute "today" in yyyy-mm-dd
         const today = new Date().toISOString().split('T')[0];
     
-        checkInInput.min = today;
-        checkOutInput.min = today;
+        checkInInput.setAttribute('min', today);
+        checkOutInput.setAttribute('min', today);
     
         checkInInput.addEventListener('change', function () {
             if (checkInInput.value < today) {
                 alert("Check-in date cannot be in the past.");
-                checkIn.value = today;
+                checkInInput.value = today;
                 return;
             }
             
@@ -423,17 +423,20 @@
                 return;
             }
 
+            // 2) when check-in changes, validate and update checkout’s min immediately
+            // update the attribute, not the property
+            checkOutInput.setAttribute('min', checkInInput.value);
         });
 
-        // right before the user picks a checkout date on mobile…
-        checkOutInput.addEventListener('focus', () => {
-            // if they haven’t picked a check-in yet, default to today
-            checkOutInput.min = checkInInput.value || today;
-        });
+        // 3) before opening the date picker, make sure the attribute is correct
+        ['focus', 'click', 'touchstart'].forEach(evt =>
+            checkOutInput.addEventListener(evt, () => {
+            checkOutInput.setAttribute('min', checkInInput.value || today);
+            })
+        );
     
         checkOutInput.addEventListener('change', function () {
             if (!checkOutInput.value) return;
-
             if (checkOutInput.value < (checkInInput.value || today)) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutInput.value = "";
