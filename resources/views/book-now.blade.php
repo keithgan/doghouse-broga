@@ -202,7 +202,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Date <span class="text-red-600">*</span></label>
-                            <input type="date" id="check_in_date" name="check_in_date" required class="w-full border border-gray-300 rounded-lg p-3" min="{{ \Carbon\Carbon::today()->format('Y-m-d') }}" value="{{ old('check_in_date') }}">
+                            <input type="text" id="check_in_date"  name="check_in_date"  placeholder="Select check-in">
                             @error('check_in_date')<p class="text-red-600 text-sm mt-2">Please select a check-in date.</p>@enderror
                         </div>
                         <div>
@@ -240,7 +240,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Date <span class="text-red-600">*</span></label>
-                            <input type="date" id="check_out_date" name="check_out_date" required class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('check_out_date') }}">
+                            <input type="text" id="check_out_date" name="check_out_date" placeholder="Select check-out">
                             @error('check_out_date')<p class="text-red-600 text-sm mt-2">Please select a check-out date.</p>@enderror
                         </div>
                         <div>
@@ -399,47 +399,30 @@
 @section('scripts')
 <!-- Make sure to include AlpineJS -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        const checkInInput = document.getElementById('check_in_date');
-        const checkOutInput = document.getElementById('check_out_date');
-    
-        // 1) compute "today" in yyyy-mm-dd
-        const today = new Date().toISOString().split('T')[0];
-    
-        checkInInput.setAttribute('min', today);
-        checkOutInput.setAttribute('min', today);
-    
-        checkInInput.addEventListener('change', function () {
-            if (checkInInput.value < today) {
-                alert("Check-in date cannot be in the past.");
-                checkInInput.value = today;
-                return;
+        const inPicker  = flatpickr("#check_in_date", {
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            onChange(selectedDates, dateStr) {
+            // bump the checkout’s minDate each time you pick a check-in
+            outPicker.set("minDate", dateStr);
+            // if the existing checkout is now invalid, clear it:
+            if (outPicker.input.value && outPicker.input.value < dateStr) {
+                outPicker.clear();
             }
-            
-            if (checkOutInput.value && checkInInput.value > checkOutInput.value) {
-                alert("Check-in date cannot be later than check-out date.");
-                checkInInput.value = "";
-                return;
             }
-
-            // 2) when check-in changes, validate and update checkout’s min immediately
-            // update the attribute, not the property
-            checkOutInput.setAttribute('min', checkInInput.value);
         });
 
-        // 3) before opening the date picker, make sure the attribute is correct
-        ['focus', 'click', 'touchstart'].forEach(evt =>
-            checkOutInput.addEventListener(evt, () => {
-            checkOutInput.setAttribute('min', checkInInput.value || today);
-            })
-        );
-    
-        checkOutInput.addEventListener('change', function () {
-            if (!checkOutInput.value) return;
-            if (checkOutInput.value < (checkInInput.value || today)) {
+        const outPicker = flatpickr("#check_out_date", {
+            dateFormat: "Y-m-d",
+            minDate: "today",
+            onChange(selectedDates, dateStr) {
+            if (inPicker.input.value && dateStr < inPicker.input.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
-                checkOutInput.value = "";
+                outPicker.clear();
+            }
             }
         });
     });
