@@ -411,6 +411,8 @@
 @section('scripts')
 <!-- Make sure to include AlpineJS -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+<!-- 1. Flatpickr library -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     // initialize the check-in picker
