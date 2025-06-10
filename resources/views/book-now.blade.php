@@ -426,9 +426,9 @@
         });
 
         // right before the user picks a checkout date on mobile…
-        checkOut.addEventListener('focus', () => {
+        checkOutInput.addEventListener('focus', () => {
             // if they haven’t picked a check-in yet, default to today
-            checkOut.min = checkIn.value || today;
+            checkOutInput.min = checkInInput.value || today;
         });
     
         checkOutInput.addEventListener('change', function () {
