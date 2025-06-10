@@ -413,7 +413,7 @@
         checkInInput.addEventListener('change', function () {
             if (checkInInput.value < today) {
                 alert("Check-in date cannot be in the past.");
-                return void (checkIn.value = today);
+                return void (checkInInput.value = today);
             } else if (checkInInput.value && checkOutInput.value && checkInInput.value > checkOutInput.value) {
                 alert("Check-in date cannot be later than check-out date.");
                 checkInInput.value = "";
