@@ -420,8 +420,11 @@
                 return;
             }
 
-            // ★ bump the checkout min ★
-            checkOutInput.min = checkInInput.value;
+            // ✅ Delay min update slightly (helps on iOS Safari sometimes)
+            setTimeout(() => {
+                checkOutInput.min = checkInInput.value;
+                console.log("Checkout min updated to: ", checkOutInput.min);
+            }, 10);
         });
     
         checkOutInput.addEventListener('change', function () {
