@@ -434,7 +434,7 @@
         checkOutInput.addEventListener('change', function () {
             if (!checkOutInput.value) return;
 
-            if (checkOutInput.value && checkOutInput.value < (checkInInput.value || today)) {
+            if (checkOutInput.value < (checkInInput.value || today)) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutInput.value = "";
             }
