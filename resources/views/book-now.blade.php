@@ -431,7 +431,7 @@
         const checkInDateInput = document.querySelector('input[name="check_in_date"]');
         const checkOutDateInput = document.querySelector('input[name="check_out_date"]');
 
-        checkInInput.addEventListener('input', function () {
+        checkInInput.addEventListener('change', function () {
             if (checkInDateInput.value < formattedToday) {
                 alert("Check-in date cannot be in the past.");
                 checkInDateInput.value = formattedToday;
@@ -441,7 +441,7 @@
             }
         });
     
-        checkOutInput.addEventListener('input', function () {
+        checkOutInput.addEventListener('change', function () {
             if (checkOutDateInput.value && checkOutDateInput.value < checkInDateInput.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutDateInput.value = "";
