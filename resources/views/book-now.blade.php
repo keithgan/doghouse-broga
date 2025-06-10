@@ -202,7 +202,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Date <span class="text-red-600">*</span></label>
-                            <input type="text" id="check_in_date"  name="check_in_date"  placeholder="Select check-in">
+                            <input  
+                                type="text"  
+                                id="check_in_date"  
+                                name="check_in_date"  
+                                placeholder="Select check-in"  
+                                readonly  
+                            />
                             @error('check_in_date')<p class="text-red-600 text-sm mt-2">Please select a check-in date.</p>@enderror
                         </div>
                         <div>
@@ -240,7 +246,13 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Date <span class="text-red-600">*</span></label>
-                            <input type="text" id="check_out_date" name="check_out_date" placeholder="Select check-out">
+                            <input  
+                                type="text"  
+                                id="check_out_date"  
+                                name="check_out_date"  
+                                placeholder="Select check-out"  
+                                readonly  
+                            />
                             @error('check_out_date')<p class="text-red-600 text-sm mt-2">Please select a check-out date.</p>@enderror
                         </div>
                         <div>
@@ -399,31 +411,34 @@
 @section('scripts')
 <!-- Make sure to include AlpineJS -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        const inPicker  = flatpickr("#check_in_date", {
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            onChange(selectedDates, dateStr) {
-            // bump the checkout’s minDate each time you pick a check-in
-            outPicker.set("minDate", dateStr);
-            // if the existing checkout is now invalid, clear it:
-            if (outPicker.input.value && outPicker.input.value < dateStr) {
-                outPicker.clear();
-            }
-            }
-        });
-
-        const outPicker = flatpickr("#check_out_date", {
-            dateFormat: "Y-m-d",
-            minDate: "today",
-            onChange(selectedDates, dateStr) {
-            if (inPicker.input.value && dateStr < inPicker.input.value) {
-                alert("Check-out date cannot be earlier than check-in date.");
-                outPicker.clear();
-            }
-            }
-        });
+  document.addEventListener("DOMContentLoaded", () => {
+    // initialize the check-in picker
+    const inPicker = flatpickr("#check_in_date", {
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      disableMobile: true,    // ← force Flatpickr on mobile
+      onChange(selectedDates, dateStr) {
+        // bump the check-out picker’s minDate
+        outPicker.set("minDate", dateStr);
+        // if the existing check-out is now invalid, clear it
+        if (outPicker.input.value && outPicker.input.value < dateStr) {
+          outPicker.clear();
+        }
+      },
     });
+
+    // initialize the check-out picker
+    const outPicker = flatpickr("#check_out_date", {
+      dateFormat: "Y-m-d",
+      minDate: "today",
+      disableMobile: true,    // ← force Flatpickr on mobile
+      onChange(selectedDates, dateStr) {
+        if (inPicker.input.value && dateStr < inPicker.input.value) {
+          alert("Check-out date cannot be earlier than check-in date.");
+          outPicker.clear();
+        }
+      },
+    });
+  });
 </script>
