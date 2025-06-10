@@ -410,9 +410,6 @@
         checkInInput.min = today;
         checkOutInput.min = today;
     
-        // const checkInDateInput = document.querySelector('input[name="check_in_date"]');
-        // const checkOutDateInput = document.querySelector('input[name="check_out_date"]');
-
         checkInInput.addEventListener('change', function () {
             if (checkInInput.value < today) {
                 alert("Check-in date cannot be in the past.");
@@ -420,16 +417,17 @@
             } else if (checkInInput.value && checkOutInput.value && checkInInput.value > checkOutInput.value) {
                 alert("Check-in date cannot be later than check-out date.");
                 checkInInput.value = "";
+                return;
             }
 
             // ★ bump the checkout min ★
             checkOutInput.min = checkInInput.value;
-            console.log("Check-in date changed to: " + checkInInput.value);
-            console.log("Check-out date changed set to: " + checkOutInput.value);
         });
     
         checkOutInput.addEventListener('change', function () {
-            if (checkOutInput.value && checkOutInput.value < checkInDateInput.value) {
+            if (!checkOutInput.value) return;
+
+            if (checkOutInput.value && checkOutInput.value < checkInInput.value) {
                 alert("Check-out date cannot be earlier than check-in date.");
                 checkOutInput.value = "";
             }
