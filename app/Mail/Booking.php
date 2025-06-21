@@ -32,6 +32,9 @@ class Booking extends Mailable
     {
         return new Envelope(
             subject: 'New Booking Request - Doghouse Broga',
+            replyTo: [
+                new Address($this->booking['email'], $this->booking['first_name'] . ' ' . $this->booking['last_name'])
+            ],
         );
     }
 
