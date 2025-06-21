@@ -141,33 +141,73 @@
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">First Name <span class="text-red-600">*</span></label>
                             <input type="text" name="first_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('first_name') }}">
-                            @error('first_name')<p class="error-message">Please enter your first name.</p>@enderror
+                            @error('first_name')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please enter your first name.</span>
+                                </div>
+                            @enderror
                         </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Last Name <span class="text-red-600">*</span></label>
                             <input type="text" name="last_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('last_name') }}">
-                            @error('last_name')<p class="error-message">Please enter your last name.</p>@enderror
+                            @error('last_name')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please enter your last name.</span>
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Email Address <span class="text-red-600">*</span></label>
                         <input type="email" name="email" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('email') }}">
-                        @error('email')<p class="error-message">Please enter a valid email address.</p>@enderror
+                        @error('email')
+                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                </svg>
+                                <span>Please provide a valid email address.</span>
+                            </div>
+                        @enderror
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Mobile Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="mobile_phone" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('mobile_phone') }}">
-                            @error('mobile_phone')<p class="error-message">Please provide a valid mobile number.</p>@enderror
+                            @error('mobile_phone')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please provide a valid mobile number.</span>
+                                </div>
+                            @enderror
                         </div>
                         
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Home Phone Number</label>
                             <input type="text" name="home_phone" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('home_phone') }}">
-                            @error('home_phone')<p class="error-message">Please provide a valid home number.</p>@enderror
+                            @error('home_phone')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please provide a valid home number.</span>
+                                </div>
+                            @enderror
                         </div>
                     </div>
                     
@@ -175,23 +215,43 @@
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Emergency Contact Person <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_contact" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_contact') }}">
-                            @error('emergency_contact')<p class="error-message">Please provide an emergency contact name.</p>@enderror
+                            @error('emergency_contact')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please provide an emergency contact name.</span>
+                                </div>
+                            @enderror
                         </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Emergency Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_phone_number" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_phone_number') }}">
-                            @error('emergency_phone_number')<p class="error-message">Please provide a valid emergency contact number.</p>@enderror
+                            @error('emergency_phone_number')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please provide a valid emergency contact number.</span>
+                                </div>
+                            @enderror
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Address <span class="text-red-600">*</span></label>
-                        <textarea name="address" rows="3" class="w-full border border-gray-300 rounded-lg p-3" >{{ old('address') }}</textarea>
+                        <textarea name="address" rows="3" class="w-full border border-gray-300 rounded-lg p-3" required>{{ old('address') }}</textarea>
                         @error('address')
-                            <p class="error-message">
-                                Please enter your full address.
-                            </p>
+                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                </svg>
+                                <span>Please enter your full address.</span>
+                            </div>
                         @enderror
                     </div>
                 </div>
@@ -215,7 +275,15 @@
                                 value="{{ old('check_in_date') }}"
                                 readonly  
                             />
-                            @error('check_in_date')<p class="error-message">Please select a check-in date.</p>@enderror
+                            @error('check_in_date')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please select a check-in date.</span>
+                                </div>
+                            @enderror
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Time <span class="text-red-600">*</span></label>
@@ -224,7 +292,15 @@
                                 @foreach (['9:00 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'] as $time)
                                   <option value="{{ $time }}" {{ old('check_in_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
-                                @error('check_in_time')<p class="error-message">Please select a check-in time.</p>@enderror
+                                @error('check_in_time')
+                                    <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                        </svg>
+                                        <span>Please select a check-in time.</span>
+                                    </div>
+                                @enderror
                             </select>
                         </div>
                           
@@ -260,7 +336,15 @@
                                 value="{{ old('check_out_date') }}"
                                 readonly  
                             />
-                            @error('check_out_date')<p class="error-message">Please select a check-out date.</p>@enderror
+                            @error('check_out_date')
+                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                    </svg>
+                                    <span>Please select a check-out date.</span>
+                                </div>
+                            @enderror
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Time <span class="text-red-600">*</span></label>
@@ -269,7 +353,15 @@
                                 @foreach (['10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'] as $time)
                                   <option value="{{ $time }}" {{ old('check_out_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
-                                @error('check_out_time')<p class="error-message">Please select a check-out time.</p>@enderror
+                                @error('check_out_time')
+                                    <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                        </svg>
+                                        <span>Please select a check-out time.</span>
+                                    </div>
+                                @enderror
                             </select>
                             <small class="block mt-1">
                                 Normal checkout hours are from <span class="font-semibold">10:00 AM to 12:00 PM</span>. 
@@ -370,10 +462,28 @@
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Name of Vet <span class="text-red-600">*</span></label>
                         <input type="text" name="vet_name" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('vet_name') }}" required>
+                        @error('vet_name')
+                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                </svg>
+                                <span>Please enter your vet name.</span>
+                            </div>
+                        @enderror
                     </div>
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Contact Number of Vet <span class="text-red-600">*</span></label>
                         <input type="text" name="vet_contact" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('vet_contact') }}" required>
+                        @error('vet_contact')
+                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                                </svg>
+                                <span>Please enter the contact number of your vet.</span>
+                            </div>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -390,7 +500,13 @@
                 </div>
             </div>
             @error('terms_accepted')
-                <p class="error-message text-center">Please agree to the terms and conditions.</p>
+                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                    </svg>
+                    <span>Please agree to the terms and conditions.</span>
+                </div>
             @enderror
 
             {{-- reCAPTCHA --}}
@@ -398,7 +514,13 @@
                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
             </div>
             @error('g-recaptcha-response')
-                <p class="error-message text-center">Please verify that you are not a robot.</p>
+                <div class="mt-4 mx-auto max-w-md flex items-center gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
+                    </svg>
+                    <span>Please verify that you are not a robot.</span>
+                </div>
             @enderror
         
             {{-- Submit --}}
