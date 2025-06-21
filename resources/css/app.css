@@ -45,16 +45,3 @@ body {
 .green-nav-bar-button:hover{
     color: #16b99a;
 }
-
-.error-message {
-    color: #dc2626;
-    font-size: 0.875rem;
-    margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
-    gap: 0.4rem;
-    background-color: #fee2e2; /* light red background like in image 2 */
-    padding: 0.5rem;
-    border: 1px solid #fca5a5; /* red border */
-    border-radius: 4px;
-}
