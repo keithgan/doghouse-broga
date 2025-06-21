@@ -30,10 +30,13 @@ class Booking extends Mailable
      */
     public function envelope(): Envelope
     {
+        $email = $this->booking['email'] ?? ''; 
+        $name = trim(($this->booking['first_name'] ?? '') . ' ' . ($this->booking['last_name'] ?? ''));
+        
         return new Envelope(
             subject: 'New Booking Request - Doghouse Broga',
             replyTo: [
-                new Address($this->booking['email'], $this->booking['first_name'] . ' ' . $this->booking['last_name'])
+                new Address($email, $name),
             ],
         );
     }
