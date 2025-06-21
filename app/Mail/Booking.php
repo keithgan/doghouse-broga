@@ -5,9 +5,9 @@ namespace App\Mail;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
-use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
 class Booking extends Mailable
@@ -32,12 +32,15 @@ class Booking extends Mailable
     public function envelope(): Envelope
     {
         $email = $this->booking['email'] ?? ''; 
-        $name = trim(($this->booking['first_name'] ?? '') . ' ' . ($this->booking['last_name'] ?? ''));
-        
+        $firstName = $this->booking['first_name'] ?? '';
+        $lastName = $this->booking['last_name'] ?? '';
+        $fullName = trim("$firstName $lastName") ?: 'Doghouse Guest';
+
         return new Envelope(
+            from: new Address('enquiries@doghousebroga.com', 'Doghouse Broga'),
             subject: 'New Booking Request - Doghouse Broga',
             replyTo: [
-                new Address($email, $name),
+                new Address($email, $fullName),
             ],
         );
     }
