@@ -128,7 +128,8 @@
 <div class="p-8" style="background-color: #4b6a55">
     <div class="max-w-2xl mx-auto bg-white shadow-md rounded-2xl p-6 sm:p-8">
         <h2 class="text-3xl font-semibold green-text mb-6">Booking Form</h2>
-        <form method="POST" action="{{ route('book-now.submit') }}" class="space-y-8">
+        <form method="POST" action="{{ route('book-now.submit') }}" class="space-y-8" id="booking-form">
+            {{-- Display Success Message --}}
             @csrf
         
             {{-- 🐾 Owner Details --}}
@@ -140,33 +141,33 @@
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">First Name <span class="text-red-600">*</span></label>
                             <input type="text" name="first_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('first_name') }}">
-                            @error('first_name')<p class="text-red-600 text-sm mt-2">Please enter your first name.</p>@enderror
+                            @error('first_name')<p class="error-message">Please enter your first name.</p>@enderror
                         </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Last Name <span class="text-red-600">*</span></label>
                             <input type="text" name="last_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('last_name') }}">
-                            @error('last_name')<p class="text-red-600 text-sm mt-2">Please enter your last name.</p>@enderror
+                            @error('last_name')<p class="error-message">Please enter your last name.</p>@enderror
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Email Address <span class="text-red-600">*</span></label>
                         <input type="email" name="email" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('email') }}">
-                        @error('email')<p class="text-red-600 text-sm mt-2">Please enter a valid email address.</p>@enderror
+                        @error('email')<p class="error-message">Please enter a valid email address.</p>@enderror
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Mobile Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="mobile_phone" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('mobile_phone') }}">
-                            @error('mobile_phone')<p class="text-red-600 text-sm mt-2">Please provide a valid mobile number.</p>@enderror
+                            @error('mobile_phone')<p class="error-message">Please provide a valid mobile number.</p>@enderror
                         </div>
                         
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Home Phone Number</label>
                             <input type="text" name="home_phone" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('home_phone') }}">
-                            @error('home_phone')<p class="text-red-600 text-sm mt-2">Please provide a valid home number.</p>@enderror
+                            @error('home_phone')<p class="error-message">Please provide a valid home number.</p>@enderror
                         </div>
                     </div>
                     
@@ -174,20 +175,24 @@
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Emergency Contact Person <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_contact" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_contact') }}">
-                            @error('emergency_contact')<p class="text-red-600 text-sm mt-2">Please provide an emergency contact name.</p>@enderror
+                            @error('emergency_contact')<p class="error-message">Please provide an emergency contact name.</p>@enderror
                         </div>
 
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Emergency Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_phone_number" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_phone_number') }}">
-                            @error('emergency_phone_number')<p class="text-red-600 text-sm mt-2">Please provide a valid emergency contact number.</p>@enderror
+                            @error('emergency_phone_number')<p class="error-message">Please provide a valid emergency contact number.</p>@enderror
                         </div>
                     </div>
 
                     <div>
                         <label class="block text-gray-700 font-medium mb-1">Address <span class="text-red-600">*</span></label>
-                        <textarea name="address" rows="3" class="w-full border border-gray-300 rounded-lg p-3" required>{{ old('address') }}</textarea>
-                        @error('address')<p class="text-red-600 text-sm mt-2">Please enter your full address.</p>@enderror
+                        <textarea name="address" rows="3" class="w-full border border-gray-300 rounded-lg p-3" >{{ old('address') }}</textarea>
+                        @error('address')
+                            <p class="error-message">
+                                Please enter your full address.
+                            </p>
+                        @enderror
                     </div>
                 </div>
             </div>
@@ -206,10 +211,11 @@
                                 type="text"  
                                 id="check_in_date"  
                                 name="check_in_date"  
-                                placeholder="Select check-in"  
+                                placeholder="Select check-in"
+                                value="{{ old('check_in_date') }}"
                                 readonly  
                             />
-                            @error('check_in_date')<p class="text-red-600 text-sm mt-2">Please select a check-in date.</p>@enderror
+                            @error('check_in_date')<p class="error-message">Please select a check-in date.</p>@enderror
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-In Time <span class="text-red-600">*</span></label>
@@ -218,7 +224,7 @@
                                 @foreach (['9:00 AM','10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'] as $time)
                                   <option value="{{ $time }}" {{ old('check_in_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
-                                @error('check_in_time')<p class="text-red-600 text-sm mt-2">Please select a check-in time.</p>@enderror
+                                @error('check_in_time')<p class="error-message">Please select a check-in time.</p>@enderror
                             </select>
                         </div>
                           
@@ -250,10 +256,11 @@
                                 type="text"  
                                 id="check_out_date"  
                                 name="check_out_date"  
-                                placeholder="Select check-out"  
+                                placeholder="Select check-out"
+                                value="{{ old('check_out_date') }}"
                                 readonly  
                             />
-                            @error('check_out_date')<p class="text-red-600 text-sm mt-2">Please select a check-out date.</p>@enderror
+                            @error('check_out_date')<p class="error-message">Please select a check-out date.</p>@enderror
                         </div>
                         <div>
                             <label class="block text-gray-700 font-medium mb-1">Check-Out Time <span class="text-red-600">*</span></label>
@@ -262,7 +269,7 @@
                                 @foreach (['10:00 AM','10:30 AM','11:00 AM','11:30 AM','12:00 PM','12:30 PM','1:00 PM','1:30 PM','2:00 PM','2:30 PM','3:00 PM','3:30 PM','4:00 PM','4:30 PM','5:00 PM'] as $time)
                                   <option value="{{ $time }}" {{ old('check_out_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
-                                @error('check_out_time')<p class="text-red-600 text-sm mt-2">Please select a check-out time.</p>@enderror
+                                @error('check_out_time')<p class="error-message">Please select a check-out time.</p>@enderror
                             </select>
                             <small class="block mt-1">
                                 Normal checkout hours are from <span class="font-semibold">10:00 AM to 12:00 PM</span>. 
@@ -306,7 +313,7 @@
                             </div>
                             <div>
                                 <label class="block text-gray-700 font-medium mb-1">Age <span class="text-red-600">*</span></label>
-                                <input type="number" :name="'dogs[' + index + '][age]'" x-model="dogs[index].age" min="0" class="w-full border border-gray-300 rounded-lg p-3">
+                                <input type="number" :name="'dogs[' + index + '][age]'" x-model="dogs[index].age" min="0" required class="w-full border border-gray-300 rounded-lg p-3">
                             </div>
                             <div>
                                 <label class="block text-gray-700 font-medium mb-1">Color <span class="text-red-600">*</span></label>
@@ -383,16 +390,16 @@
                 </div>
             </div>
             @error('terms_accepted')
-                <p class="text-red-600 text-sm mt-2 text-center">Please agree to the terms and conditions.</p>
+                <p class="error-message text-center">Please agree to the terms and conditions.</p>
             @enderror
 
             {{-- reCAPTCHA --}}
-            <div class="flex justify-center">
+            {{-- <div class="flex justify-center">
                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
             </div>
             @error('g-recaptcha-response')
-                <p class="text-red-600 text-sm mt-2 text-center">Please verify that you are not a robot.</p>
-            @enderror
+                <p class="error-message text-center">Please verify that you are not a robot.</p>
+            @enderror --}}
         
             {{-- Submit --}}
             <div class="text-center">
@@ -442,5 +449,15 @@
         }
       },
     });
-  });
+
+    window.addEventListener('DOMContentLoaded', function () {
+        const hasErrors = document.querySelector('.error-message');
+            if (hasErrors) {
+                const targetSection = document.getElementById('booking-form'); // replace with your form section ID
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            }
+        });
+    });
 </script>
