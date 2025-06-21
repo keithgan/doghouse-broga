@@ -394,12 +394,12 @@
             @enderror
 
             {{-- reCAPTCHA --}}
-            {{-- <div class="flex justify-center">
+            <div class="flex justify-center">
                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
             </div>
             @error('g-recaptcha-response')
                 <p class="error-message text-center">Please verify that you are not a robot.</p>
-            @enderror --}}
+            @enderror
         
             {{-- Submit --}}
             <div class="text-center">

@@ -79,10 +79,10 @@ class BookingController extends Controller
         // $newBooking = BookingModel::create($bookingModel);
 
         // Send confirmation email to user
-        Mail::to($booking['email'])->send((new BookingConfirmation($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
+        Mail::to($booking['email'])->queue((new BookingConfirmation($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
         
         // Send confirmation email to admin
-        Mail::to(['enquiries@doghousebroga.com', 'doghousebroga@yahoo.com'])->send((new Booking($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
+        Mail::to(['enquiries@doghousebroga.com', 'doghousebroga@yahoo.com'])->queue((new Booking($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
     
         return redirect()->route('thank-you')->with('success', 'Booking submitted successfully!');
     }
