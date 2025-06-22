@@ -9,7 +9,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class BookingConfirmation extends Mailable
+class BookingConfirmation extends Mailable implements ShouldQueue
 {
     public $booking;
 

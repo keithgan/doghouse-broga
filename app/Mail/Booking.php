@@ -10,7 +10,7 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Booking extends Mailable
+class Booking extends Mailable implements ShouldQueue
 {
     public $booking;
 
