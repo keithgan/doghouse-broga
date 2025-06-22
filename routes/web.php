@@ -25,8 +25,7 @@ Route::post('/book-now', [BookingController::class, 'submitForm'])->name('book-n
 Route::view('/terms-conditions', 'terms-conditions')->name('terms-conditions');
 Route::view('/thank-you', 'thank-you')->name('thank-you');
 
-
-Route::get('/test-mail', function () {
-    Mail::to('keithgan96@gmail.com')->queue(new TestMail());
-    return 'Mail queued!';
-});
+// Route::get('/test-mail', function () {
+//     Mail::to('keithgan96@gmail.com')->queue(new TestMail());
+//     return 'Mail queued!';
+// });
