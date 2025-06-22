@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookingController;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\TestMail;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +24,9 @@ Route::get('/book-now', [BookingController::class, 'showForm'])->name('book-now'
 Route::post('/book-now', [BookingController::class, 'submitForm'])->name('book-now.submit');
 Route::view('/terms-conditions', 'terms-conditions')->name('terms-conditions');
 Route::view('/thank-you', 'thank-you')->name('thank-you');
+
+
+Route::get('/test-mail', function () {
+    Mail::to('keithgan96@gmail.com')->queue(new TestMail());
+    return 'Mail queued!';
+});
