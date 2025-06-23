@@ -24,6 +24,7 @@
     <p><span class="label">Mobile Phone:</span> {{ $booking['mobile_phone'] }}</p>
     <p><span class="label">Home Phone:</span> {{ $booking['home_phone'] ?? 'N/A' }}</p>
     <p><span class="label">Emergency Contact:</span> {{ $booking['emergency_contact'] }}</p>
+    <p><span class="label">Emergency Phone Number:</span> {{ $booking['emergency_phone_number'] }}</p>
     <p><span class="label">Address:</span> {{ $booking['address'] }}</p>
 
     <h2>Vet Details</h2>
