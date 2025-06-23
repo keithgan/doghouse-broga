@@ -387,8 +387,40 @@
                 </div>
             </div>
 
+            <!-- Place this before the Alpine form component -->
+            <script type="application/json" id="dogs-old-data">
+                {!! json_encode(old('dogs', [])) !!}
+            </script>
+
             <!-- Pet Details Section -->
-            <div x-data="{dogs: {{ json_encode(old('dogs', [['id' => 1, 'neutered' => 0]])) }}}" class="space-y-6 mt-10">
+            <div 
+                x-data="{
+                    dogs: (() => {
+                        const defaultDog = () => ({
+                            id: Date.now() + Math.random(),
+                            name: '',
+                            breed: '',
+                            age: '',
+                            color: '',
+                            sex: '',
+                            neutered: 0,
+                            grooming: '',
+                            requirements: '',
+                            illnesses: ''
+                        });
+
+                        try {
+                            const oldDogs = JSON.parse(document.getElementById('dogs-old-data').textContent);
+                            if (!Array.isArray(oldDogs) || oldDogs.length === 0) {
+                                return [defaultDog()];
+                            }
+                            return oldDogs.map(dog => Object.assign(defaultDog(), dog));
+                        } catch (e) {
+                            return [defaultDog()];
+                        }
+                    })()
+                }"
+                class="space-y-6 mt-10">
                 <h3 class="text-xl font-semibold text-gray-800 border-b pb-1">Pet Details</h3>
 
                 <template x-for="(dog, index) in dogs" :key="dog.id">
@@ -543,43 +575,53 @@
 <!-- 1. Flatpickr library -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    // initialize the check-in picker
-    const inPicker = flatpickr("#check_in_date", {
-      dateFormat: "Y-m-d",
-      minDate: "today",
-      disableMobile: true,    // ← force Flatpickr on mobile
-      onChange(selectedDates, dateStr) {
-        // bump the check-out picker’s minDate
-        outPicker.set("minDate", dateStr);
-        // if the existing check-out is now invalid, clear it
-        if (outPicker.input.value && outPicker.input.value < dateStr) {
-          outPicker.clear();
-        }
-      },
-    });
+    document.addEventListener("DOMContentLoaded", () => {
+        // initialize the check-in picker
+        const inPicker = flatpickr("#check_in_date", {
+        dateFormat: "Y-m-d",
+        minDate: "today",
+        disableMobile: true,    // ← force Flatpickr on mobile
+        onChange(selectedDates, dateStr) {
+            // bump the check-out picker’s minDate
+            outPicker.set("minDate", dateStr);
+            // if the existing check-out is now invalid, clear it
+            if (outPicker.input.value && outPicker.input.value < dateStr) {
+            outPicker.clear();
+            }
+        },
+        });
 
-    // initialize the check-out picker
-    const outPicker = flatpickr("#check_out_date", {
-      dateFormat: "Y-m-d",
-      minDate: "today",
-      disableMobile: true,    // ← force Flatpickr on mobile
-      onChange(selectedDates, dateStr) {
-        if (inPicker.input.value && dateStr < inPicker.input.value) {
-          alert("Check-out date cannot be earlier than check-in date.");
-          outPicker.clear();
-        }
-      },
+        // initialize the check-out picker
+        const outPicker = flatpickr("#check_out_date", {
+        dateFormat: "Y-m-d",
+        minDate: "today",
+        disableMobile: true,    // ← force Flatpickr on mobile
+        onChange(selectedDates, dateStr) {
+            if (inPicker.input.value && dateStr < inPicker.input.value) {
+            alert("Check-out date cannot be earlier than check-in date.");
+            outPicker.clear();
+            }
+        },
+        });
+        
+        // const raw = document.getElementById('dogs-old-data')?.textContent;
+        // console.log('🧪 Raw old dogs JSON:', raw);
+
+        // try {
+        //     const parsed = JSON.parse(raw);
+        //     console.log('✅ Parsed old dogs:', parsed);
+        // } catch (err) {
+        //     console.error('❌ Failed to parse old dogs JSON', err);
+        // }
     });
 
     window.addEventListener('DOMContentLoaded', function () {
         const hasErrors = document.querySelector('.error-message');
-            if (hasErrors) {
-                const targetSection = document.getElementById('booking-form'); // replace with your form section ID
-                if (targetSection) {
-                    targetSection.scrollIntoView({ behavior: 'smooth' });
-                }
+        if (hasErrors) {
+            const targetSection = document.getElementById('booking-form'); // replace with your form section ID
+            if (targetSection) {
+                targetSection.scrollIntoView({ behavior: 'smooth' });
             }
-        });
+        }
     });
 </script>
