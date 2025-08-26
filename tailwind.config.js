@@ -1,14 +1,16 @@
 module.exports = {
     purge: [
-      './resources/views/**/*.blade.php',
-      './resources/css/**/*.css',
-      './resources/js/**/*.js',
+		'./resources/views/**/*.blade.php',
+		'./resources/css/**/*.css',
+		'./resources/js/**/*.js',
     ],
     theme: {
-      extend: {},
+      	extend: {},
     },
     variants: {
-      extend: {},
+		extend: {
+			fontSize: ['responsive'], // just to be explicit
+		},
     },
     plugins: [],
   };

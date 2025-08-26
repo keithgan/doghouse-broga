@@ -20,9 +20,11 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::view('/facilities', 'facilities')->name('facilities');
 Route::get('/book-now', [BookingController::class, 'showForm'])->name('book-now');
 Route::post('/book-now', [BookingController::class, 'submitForm'])->name('book-now.submit');
 Route::view('/terms-conditions', 'terms-conditions')->name('terms-conditions');
+Route::view('/faqs', 'faqs')->name('faqs');
 Route::view('/thank-you', 'thank-you')->name('thank-you');
 Route::get('/keep-alive', function () {
     return response()->noContent(); // Fast and clean

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-full" lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,7 +35,7 @@
     @include('partials.header')
 
     {{-- Page Content --}}
-    <main class="flex-grow">
+    <main class="flex-grow flex-1">
         @yield('content')
     </main>
 

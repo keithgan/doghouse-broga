@@ -45,3 +45,28 @@ body {
 .green-nav-bar-button:hover{
     color: #16b99a;
 }
+
+header {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: white !important;
+    box-shadow: none !important;
+    z-index: 30;
+}
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-image: repeating-linear-gradient(45deg, #2a2c2c 0, #2a2c2c 1px, #262828 1px, #262828 5px);
+}
+
+.fade-out-button {
+    transition: opacity 0.3s ease;
+}
+
+.fade-out-button:hover {
+    opacity: 0.2;
+}
