@@ -118,7 +118,7 @@
                 </p>
 
                 <p class="mt-6 small-text">
-                    Please also refer to our full terms and conditions <a href="{{ url('/terms-conditions') }}" target="_blank" class="tnc-here underline hover:text-indigo-800">HERE</a>.
+                    Please also refer to our full terms and conditions <a href="{{ url('/terms-conditions') }}" target="_blank" class="here-redirect underline hover:text-indigo-800">HERE</a>.
                 </p>
             </div>
         </div>

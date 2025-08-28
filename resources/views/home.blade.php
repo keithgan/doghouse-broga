@@ -96,7 +96,11 @@
                     :class="activeSlide === index ? 'bg-white' : 'bg-gray-400'"></button>
         </template>
     </div>
+    
+    @include('partials.banner-background')
 </div>
+
+
 @endsection
 
 <style>

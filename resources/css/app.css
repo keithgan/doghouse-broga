@@ -4,6 +4,42 @@
 
 /* Your custom styles below */
 
+#site-header {
+  position: absolute;
+  top: 0; left: 0; width: 100%;
+  background: transparent;            /* overlay look at the top */
+  transition: background-color .25s, box-shadow .25s, transform .25s;
+  z-index: 30;
+}
+
+/* When scrolled: convert to fixed sticky bar with solid bg + shadow */
+#site-header.is-stuck {
+  position: fixed;
+  background: transparent;
+  box-shadow: 0 6px 18px rgba(0,0,0,.08);
+  transform: translateY(0);
+}
+
+/* Optional: hide until user scrolls a bit (nice reveal) */
+#site-header.revealed { transform: translateY(0); }
+#site-header.hidden   { transform: translateY(-100%); }
+
+
+footer {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    background-image: repeating-linear-gradient(45deg, #2a2c2c 0, #2a2c2c 1px, #262828 1px, #262828 5px);
+}
+
+.fade-out-button {
+    transition: opacity 0.3s ease;
+}
+
+.fade-out-button:hover {
+    opacity: 0.2;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
 }
@@ -13,9 +49,13 @@ body {
     line-height: var(--text-sm--line-height); /* calc(1.25 / 0.875) */
 }
 
-.tnc-here{
-    color: #16b99a;
+.here-redirect{
+    color: #0F766E;
     font-weight: 600;
+}
+
+.here-redirect:hover{
+    color: #0f816c;
 }
 
 .bg-light-green{
@@ -44,29 +84,4 @@ body {
 
 .green-nav-bar-button:hover{
     color: #16b99a;
-}
-
-header {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
-    background-color: white !important;
-    box-shadow: none !important;
-    z-index: 30;
-}
-
-footer {
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    background-image: repeating-linear-gradient(45deg, #2a2c2c 0, #2a2c2c 1px, #262828 1px, #262828 5px);
-}
-
-.fade-out-button {
-    transition: opacity 0.3s ease;
-}
-
-.fade-out-button:hover {
-    opacity: 0.2;
 }

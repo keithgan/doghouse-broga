@@ -26,13 +26,13 @@
 			<img src="/images/facilities/villas.jpg" alt="Dog Villas" class="rounded-2xl shadow-lg">
 			<div>
 				<h2 class="text-2xl font-semibold">Dog Villas</h2>
-				<ul class="mt-4 list-disc list-inside space-y-2 text-slate-700">
+				<ul class="mt-4 list-disc list-outside pl-6 space-y-2 text-slate-700">
 					<li>6 dog villas: 4 units of 12’x8’, 2 units of 8’x4’</li>
-					<li>Sharing basis depending on breed size</li>
-					<li>Ceiling fans, mosquito netting, great ventilation</li>
-					<li>Private deck, courtyard and play area</li>
-					<li>Bedding and toys provided</li>
-					<li>Cleaned twice daily for hygiene</li>
+					<li>Boarding facilities are based on a sharing basis; the number of dogs sharing each villa depends on the size of the breed.</li>
+					<li>Each villa is fitted with ceiling fans, mosquito netting and excellent ventilation.</li>
+					<li>Each villa has an open deck for “chill out time” and has its own courtyard and play area.</li>
+					<li>Bedding and toys are provided.</li>
+					<li>All villas are cleaned twice daily; hygiene is of great importance to us.</li>
 				</ul>
 			</div>
 		</div>
@@ -43,9 +43,9 @@
 		<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
 			<div>
 				<h2 class="text-2xl font-semibold">Outdoor & Indoor Play Areas</h2>
-				<ul class="mt-4 list-disc list-inside space-y-2 text-slate-700">
-					<li>Daily group play sessions on a large open field</li>
-					<li>Supervised games for socialising with people and other dogs</li>
+				<ul class="mt-4 list-disc list-outside pl-6 space-y-2 text-slate-700">
+					<li>Additional to the courtyard within the villa, each day our experienced staff will be implementing a group play session on a big open field.</li>
+					<li>The dogs are exercised and entertained with a variety of games allowing them to interact with people and other dogs throughout their stay at Doghouse Broga.</li>
 				</ul>
 			</div>
 			<img src="/images/facilities/play-area.jpg" alt="Play Area" class="rounded-2xl shadow-lg">
@@ -61,7 +61,7 @@
 				<h2 class="text-3xl md:text-3xl font-light leading-tight">Swimming Pool</h2>
 				<p class="mt-4 text-sm md:text-md">Fully supervised water play sessions.</p>
 				<p class="mt-4 text-sm md:text-base italic opacity-90">
-					*Additional rates applied on the water play session. Please refer to the section entitled “Our Rates” <a href="{{ url('/book-now') }}" target="_blank" class="book-now-here underline hover:text-indigo-800">HERE</a>
+					*Additional rates applied on the water play session. Please refer to the section entitled “Our Rates” <a href="{{ url('/book-now') }}" target="_blank" class="here-redirect">HERE</a>
 				</p>
 			</div>
 		</div>
@@ -73,70 +73,55 @@
 			<img src="/images/facilities/security.jpg" alt="Security" class="rounded-2xl shadow-lg">
 			<div>
 				<h2 class="text-2xl font-semibold">Experience & Security</h2>
-				<ul class="mt-4 list-disc list-inside space-y-2 text-slate-700">
-					<li>Staff with 18+ years of experience</li>
-					<li>On-site 24/7 supervision</li>
+				<ul class="mt-4 list-disc list-outside pl-6 space-y-2 text-slate-700">
+					<li>Our staff have over 18 years of experience and are on the site 24 hours a day, 7 days a week.</li>
+					<li>The Doghouse is closely monitored by staff.</li>
 				</ul>
 			</div>
 		</div>
 	</section>
 
 	<!-- Services -->
-	<section class="py-16 bg-emerald-100">
-		<div class="max-w-7xl mx-auto px-4">
-			<h2 class="text-3xl font-light text-center text-emerald-800">Services</h2>
+    <section class="py-16" style="background-color:#65866D">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-semibold text-center text-black">Services</h2>
 
-			<div class="mt-10 grid md:grid-cols-2 gap-10">
-				<div>
-					<h3 class="text-xl font-semibold text-emerald-700">Grooming Services</h3>
-					<ul class="mt-2 list-disc list-inside text-slate-700">
-						<li>Full professional grooming available (rates vary by breed/condition)</li>
-						<li>All dogs receive a complimentary bath before departure</li>
-					</ul>
-				</div>
+            <!-- Services grid -->
+            <div class="mt-10 grid gap-8 md:grid-cols-2 lg:grid-cols-2">
+                <div class="bg-white bg-opacity-30 backdrop-filter backdrop-blur rounded-2xl p-6 border border-white border-opacity-20">
+                    <h3 class="text-xl font-semibold text-emerald-700">Grooming Services</h3>
+                    <ul class="mt-3 list-disc list-outside pl-6 text-gray-800 leading-relaxed">
+                    <li>Full professional grooming service is available. The rates for these sessions are based on the breed and condition of the dog. If grooming is required, please check the option “Grooming Service” in the booking form.</li>
+                    <li>All dogs will receive a complimentary bath prior to departure.</li>
+                    </ul>
+                </div>
 
-				<div>
-					<h3 class="text-xl font-semibold text-emerald-700">Pet Taxi</h3>
-					<ul class="mt-2 list-disc list-inside text-slate-700">
-						<li>Convenient pick-up & return (Mon–Sat, 10am–4pm)</li>
-						<li>Book via the form by selecting “Pet Taxi Service”</li>
-					</ul>
-				</div>
+                <div class="bg-white bg-opacity-30 backdrop-filter backdrop-blur rounded-2xl p-6 border border-white border-opacity-20">
+                    <h3 class="text-xl font-semibold text-emerald-700">Pet Taxi</h3>
+                    <ul class="mt-3 list-disc list-outside pl-6 text-gray-800 leading-relaxed">
+                    <li>A convenient Pet Taxi is available for pick up, and return of your dogs.</li>
+                    <li>The taxi is available Monday to Saturday between the hours of 10am to 4pm.</li>
+                    <li>Should you require the pet taxi service, please check the option “Pet Taxi Service” on the booking form.</li>
+                    </ul>
+                </div>
 
-				<div>
-					<h3 class="text-xl font-semibold text-emerald-700">Pet Relocation</h3>
-					<p class="mt-2 text-slate-700">Contact us for relocation services.</p>
-				</div>
-			</div>
-		</div>
-	</section>
+                <div class="bg-white bg-opacity-30 backdrop-filter backdrop-blur rounded-2xl p-6 border border-white border-opacity-20">
+                    <h3 class="text-xl font-semibold text-emerald-700">Pet Relocation</h3>
+                    <p class="mt-3 text-gray-800 leading-relaxed">Should you require this pet service, please contact us <a href="{{ url('/book-now') }}" target="_blank" class="underline here-redirect">HERE</a>.</p>
+                </div>
+            </div>
 
-	<!-- CTA -->
-	<section class="relative bg-cover bg-center text-white" style="background-image:url('/images/backgrounds/broga-hill.jpg')">
-		<div class="max-w-4xl mx-auto px-4 py-16">
-			<div class="flex md:items-start">
-				<div class="w-3/4 text-left">
-					<h3 class="text-xl md:text-2xl font-light leading-tight py-2">
-					A tranquil retreat for your pet in Broga
-					</h3>
-					<!-- green underline -->
-					<div class="mt-2 h-1 w-80 bg-emerald-300"></div>
+            <div class="mt-10 max-w-5xl mx-auto px-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <img src="/images/facilities/grooming.jpg" alt="Grooming"
+                        class="w-full h-64 object-cover rounded-xl shadow">
+                    <img src="/images/facilities/pets.jpg" alt="Pet Taxi"
+                        class="w-full h-64 object-cover rounded-xl shadow">
+                </div>
+            </div>
+        </div>
+    </section>
 
-					<p class="mt-4 text-lg md:text-xl text-red-400">
-					The ultimate pet resort!
-					</p>
-					<p class="mt-3 md:mt-4 text-md">
-					Surrounded by breathtaking, towering trees and a lush forest of Broga town,
-					The Doghouse is a peaceful sanctuary, situated on the edge of this beautiful nature reserve.
-					</p>
-				</div>
-				<div class="w-1/4 mt-6 md:mt-0 md:ml-8 self-start">
-					<a href="{{ route('book-now') }}"
-					class="inline-block bg-emerald-400 hover:bg-green-500 text-white font-semibold px-6 py-3 rounded-full shadow-lg">
-					BOOK NOW
-					</a>
-				</div>
-			</div>
-		</div>
-	</section>
+    @include('partials.banner-background')
+
 @endsection
