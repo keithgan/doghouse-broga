@@ -23,6 +23,10 @@
     {{-- Flatpickr for date picker --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
 
+    {{-- Swiper (CDN) --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
