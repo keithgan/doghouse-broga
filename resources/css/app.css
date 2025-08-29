@@ -85,3 +85,28 @@ body {
 .green-nav-bar-button:hover{
     color: #16b99a;
 }
+
+/* Default (mobile-first) */
+.image {
+    width: 100%;
+    max-width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small devices (like phones ≤640px) */
+@media (max-width: 640px) {
+  .image {
+    width: 90%;   /* takes 90% of its container */
+    max-width: 360px; /* optional cap */
+  }
+}
+
+/* Medium devices (like tablets ≥768px) */
+@media (min-width: 768px) {
+  .image {
+    width: 90%;   /* smaller inside the column */
+    max-width: 480px;
+  }
+}

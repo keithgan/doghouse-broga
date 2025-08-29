@@ -23,7 +23,7 @@
 	<!-- Dog Villas -->
 	<section class="py-16" style="background-color: #819D7C">
 		<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-			<img src="/images/facilities/villas.jpg" alt="Dog Villas" class="rounded-2xl shadow-lg">
+			<img src="/images/facilities/villas.jpg" alt="Dog Villas" class="rounded-2xl shadow-lg image">
 			<div>
 				<h2 class="text-2xl font-semibold">Dog Villas</h2>
 				<ul class="mt-4 list-disc list-outside pl-6 space-y-2 text-slate-700">
@@ -48,7 +48,7 @@
 					<li>The dogs are exercised and entertained with a variety of games allowing them to interact with people and other dogs throughout their stay at Doghouse Broga.</li>
 				</ul>
 			</div>
-			<img src="/images/facilities/play-area.jpg" alt="Play Area" class="rounded-2xl shadow-lg">
+			<img src="/images/facilities/play-area.jpg" alt="Play Area" class="rounded-2xl shadow-lg image mx-auto md:ml-0">
 		</div>
 	</section>
 
@@ -70,7 +70,7 @@
 	<!-- Experience & Security -->
 	<section class="py-16" style="background-color: #819D7C">
 		<div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-10 items-center">
-			<img src="/images/facilities/security.jpg" alt="Security" class="rounded-2xl shadow-lg">
+			<img src="/images/facilities/security.jpg" alt="Security" class="rounded-2xl shadow-lg image">
 			<div>
 				<h2 class="text-2xl font-semibold">Experience & Security</h2>
 				<ul class="mt-4 list-disc list-outside pl-6 space-y-2 text-slate-700">
