@@ -142,7 +142,7 @@
                             <label class="block text-gray-700 font-medium mb-1">First Name <span class="text-red-600">*</span></label>
                             <input type="text" name="first_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('first_name') }}">
                             @error('first_name')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -156,7 +156,7 @@
                             <label class="block text-gray-700 font-medium mb-1">Last Name <span class="text-red-600">*</span></label>
                             <input type="text" name="last_name" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('last_name') }}">
                             @error('last_name')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -171,7 +171,7 @@
                         <label class="block text-gray-700 font-medium mb-1">Email Address <span class="text-red-600">*</span></label>
                         <input type="email" name="email" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('email') }}">
                         @error('email')
-                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                            <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -186,7 +186,7 @@
                             <label class="block text-gray-700 font-medium mb-1">Mobile Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="mobile_phone" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('mobile_phone') }}">
                             @error('mobile_phone')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -200,7 +200,7 @@
                             <label class="block text-gray-700 font-medium mb-1">Home Phone Number</label>
                             <input type="text" name="home_phone" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('home_phone') }}">
                             @error('home_phone')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -216,7 +216,7 @@
                             <label class="block text-gray-700 font-medium mb-1">Emergency Contact Person <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_contact" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_contact') }}">
                             @error('emergency_contact')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -230,7 +230,7 @@
                             <label class="block text-gray-700 font-medium mb-1">Emergency Phone Number <span class="text-red-600">*</span></label>
                             <input type="text" name="emergency_phone_number" class="w-full border border-gray-300 rounded-lg p-3" required value="{{ old('emergency_phone_number') }}">
                             @error('emergency_phone_number')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -245,7 +245,7 @@
                         <label class="block text-gray-700 font-medium mb-1">Address <span class="text-red-600">*</span></label>
                         <textarea name="address" rows="3" class="w-full border border-gray-300 rounded-lg p-3" required>{{ old('address') }}</textarea>
                         @error('address')
-                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                            <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -276,7 +276,7 @@
                                 readonly  
                             />
                             @error('check_in_date')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -293,7 +293,7 @@
                                   <option value="{{ $time }}" {{ old('check_in_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
                                 @error('check_in_time')
-                                    <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -337,7 +337,7 @@
                                 readonly  
                             />
                             @error('check_out_date')
-                                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -354,7 +354,7 @@
                                   <option value="{{ $time }}" {{ old('check_out_time') === $time ? 'selected' : '' }}>{{ $time }}</option>
                                 @endforeach
                                 @error('check_out_time')
-                                    <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                                    <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                                 d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -495,7 +495,7 @@
                         <label class="block text-gray-700 font-medium mb-1">Name of Vet <span class="text-red-600">*</span></label>
                         <input type="text" name="vet_name" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('vet_name') }}" required>
                         @error('vet_name')
-                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                            <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -508,7 +508,7 @@
                         <label class="block text-gray-700 font-medium mb-1">Contact Number of Vet <span class="text-red-600">*</span></label>
                         <input type="text" name="vet_contact" class="w-full border border-gray-300 rounded-lg p-3" value="{{ old('vet_contact') }}" required>
                         @error('vet_contact')
-                            <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                            <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -532,7 +532,7 @@
                 </div>
             </div>
             @error('terms_accepted')
-                <div class="mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                <div class="form-error mt-4 flex gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -546,7 +546,7 @@
                 <div class="g-recaptcha" data-sitekey="{{ env('RECAPTCHA_SITE_KEY') }}"></div>
             </div>
             @error('g-recaptcha-response')
-                <div class="mt-4 mx-auto max-w-md flex items-center gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
+                <div class="form-error mt-4 mx-auto max-w-md flex items-center gap-2 border border-red-300 bg-red-100 text-red-700 text-sm p-3 rounded-md">
                     <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 shrink-0 text-red-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M12 9v2m0 4h.01m-6.938 4h13.856c1.054 0 1.658-1.14 1.105-2.055L13.105 4.945c-.526-.88-1.684-.88-2.21 0L4.977 17.945C4.424 18.86 5.028 20 6.082 20z" />
@@ -572,8 +572,10 @@
 @section('scripts')
 <!-- Make sure to include AlpineJS -->
 <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+
 <!-- 1. Flatpickr library -->
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", () => {
         // initialize the check-in picker
@@ -604,24 +606,20 @@
         },
         });
         
-        // const raw = document.getElementById('dogs-old-data')?.textContent;
-        // console.log('🧪 Raw old dogs JSON:', raw);
-
-        // try {
-        //     const parsed = JSON.parse(raw);
-        //     console.log('✅ Parsed old dogs:', parsed);
-        // } catch (err) {
-        //     console.error('❌ Failed to parse old dogs JSON', err);
-        // }
-    });
-
-    window.addEventListener('DOMContentLoaded', function () {
-        const hasErrors = document.querySelector('.error-message');
-        if (hasErrors) {
-            const targetSection = document.getElementById('booking-form'); // replace with your form section ID
-            if (targetSection) {
-                targetSection.scrollIntoView({ behavior: 'smooth' });
+        @if ($errors->any()) {
+            const firstError = document.querySelector('.form-error');
+            console.log('First error element:', firstError);
+            
+            if (firstError) {
+                firstError.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
             }
         }
+        @else
+            console.log('No $errors in this view');
+        @endif
     });
+
 </script>

@@ -77,7 +77,7 @@ class BookingController extends Controller
         $bookingModel['dogs'] = json_encode($validated['dogs']);
         $bookingModel['booking_data'] = json_encode($validated);
         
-        // $newBooking = BookingModel::create($bookingModel);
+        $newBooking = BookingModel::create($bookingModel);
 
         // Send confirmation email to user
         Mail::to($booking['email'])->queue((new BookingConfirmation($booking))->from('enquiries@doghousebroga.com', 'Doghouse Broga'));
