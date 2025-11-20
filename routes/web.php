@@ -20,7 +20,7 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
-Route::get('/book-now', [BookingController::class, 'showForm'])->name('book-now');
+Route::get('/book-now', [BookingController::class, 'showForm'])->middleware('prevent-back-history')->name('book-now');
 Route::post('/book-now', [BookingController::class, 'submitForm'])->name('book-now.submit');
 Route::view('/terms-conditions', 'terms-conditions')->name('terms-conditions');
 Route::view('/thank-you', 'thank-you')->name('thank-you');

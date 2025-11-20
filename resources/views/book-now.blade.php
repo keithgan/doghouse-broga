@@ -557,7 +557,7 @@
         
             {{-- Submit --}}
             <div class="text-center">
-                <button type="submit" class="green-button text-white font-bold py-3 px-10 rounded-lg transition">
+                <button type="submit" id="submitBtn" class="green-button text-white font-bold py-3 px-10 rounded-lg transition">
                     Submit Booking Request
                 </button>
             </div>
@@ -608,7 +608,7 @@
         
         @if ($errors->any()) {
             const firstError = document.querySelector('.form-error');
-            console.log('First error element:', firstError);
+            // console.log('First error element:', firstError);
             
             if (firstError) {
                 firstError.scrollIntoView({
@@ -618,8 +618,46 @@
             }
         }
         @else
-            console.log('No $errors in this view');
+            // console.log('No $errors in this view');
         @endif
+
+        const form = document.querySelector('form');
+        const btn  = document.getElementById('submitBtn');
+
+        if (!form || !btn) return;
+
+        form.addEventListener('submit', () => {
+            btn.disabled = true;
+            btn.innerText = 'Submitting...';
+        });
+
+        function resetFormState() {
+            if (!form) return;
+
+            // Clear form fields
+            form.reset();
+
+            // Re-enable button and restore label
+            if (btn) {
+                btn.disabled = false;
+                btn.innerText = 'Submit booking'; // original label
+            }
+
+            // Reset reCAPTCHA if present
+            if (window.grecaptcha && typeof grecaptcha.reset === 'function') {
+                grecaptcha.reset();
+            }
+        }
+
+        // Handle page restored from bfcache / history
+        window.addEventListener('pageshow', function (event) {
+            const navEntries = performance.getEntriesByType('navigation');
+            const navType = navEntries.length ? navEntries[0].type : null;
+
+            if (event.persisted || navType === 'back_forward') {
+                resetFormState();
+            }
+        });
     });
 
 </script>
