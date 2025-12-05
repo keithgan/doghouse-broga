@@ -31,3 +31,6 @@ Route::get('/keep-alive', function () {
 //     Mail::to('keithgan96@gmail.com')->queue(new TestMail());
 //     return 'Mail queued!';
 // });
+// Route::get('/test-500', function () {
+//     throw new Exception('Test 500');
+// });
