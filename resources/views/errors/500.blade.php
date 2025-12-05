@@ -19,9 +19,8 @@
       This isn’t a problem with your input — please try again shortly.
     </p>
 
-    <a href="{{ url('/') }}"
-       class="inline-block light-green-button text-white font-semibold py-3 px-6 rounded-lg shadow-md transition">
-        Go to Home Page
+    <a href="{{ url('/') }}" class="inline-block light-green-button text-white font-semibold py-3 px-6 rounded-lg shadow-md transition">
+        Back to Home
     </a>
   </div>
 
